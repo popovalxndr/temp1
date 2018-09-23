@@ -1,5 +1,7 @@
 import random
 
+#Guess
+
 WORDS = ('python','script','debugging','shell','string')
 
 secret = random.choice(WORDS)
