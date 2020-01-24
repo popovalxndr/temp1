@@ -1,0 +1,20 @@
+function largestPrimeFactor(num) {
+  // Good luck!
+  const primes = [];
+  let res;
+
+  for(let i=2; i<=num; i++) {
+    if (primes.every(prime => i % prime)) primes.unshift(i);
+  }
+
+  for(let i=0; i<primes.length; i++) {
+    if (!(num % primes[i])) {
+      res = primes[i];
+      break;
+    }
+  }
+
+  return res;
+}
+
+console.log(largestPrimeFactor(13195));

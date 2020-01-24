@@ -1,0 +1,35 @@
+const sort = arr => {
+
+  let swaps = false;
+
+  for(let i=0; i<arr.length-1; i++) {
+    if (arr[i] > arr[i + 1]) {
+      arr = [
+        ...arr.slice(0, i),
+        ...arr.slice(i + 1),
+        arr[i]
+      ];
+
+      swaps = true;
+      i--;
+    }
+  }
+
+  return {swaps, arr};
+}
+
+
+function bubbleSort(array) {
+
+  let swaps = false;
+
+  do {
+    const res = sort(array);
+    swaps = res.swaps;
+    array = res.arr;
+  } while (swaps);
+
+  return array;
+}
+
+console.log(bubbleSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]));
